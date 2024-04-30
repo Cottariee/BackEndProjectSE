@@ -5,7 +5,7 @@ const Campground = require('../models/Campground');
 //@access Public
 exports.getCampgrounds=async(req,res,next)=>{
     let query;
-
+     console.log('test')
     //Copy req.query
     const reqQuery = {...req.query};
 
