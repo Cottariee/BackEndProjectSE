@@ -16,7 +16,6 @@ dotenv.config({path:'./config/config.env'});
 connectDB();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 const swaggerOptions = {
     swaggerDefinition:{
@@ -28,9 +27,7 @@ const swaggerOptions = {
         },
         servers: [
             {
-                // process.env.HOST + ':' + PORT + '/api/v1'
-                // 'http://localhost/:5000/api/v1'
-                url:  process.env.HOST + ':' + PORT + '/api/v1'
+                url: 'http://localhost:5000/api/v1'
             }
         ],
     },
@@ -79,8 +76,8 @@ app.use('/api/v1/replys',replys);
 // app.use('/api/v1/rates', rates)
 app.use('/api/v1/historys',historys);
 
-
-const server =  app.listen( PORT, console.log('Server running in ' ,process.env.NODE_ENV, 'on ' + process.env.HOST + ':' + PORT));
+const PORT = process.env.PORT || 5000;
+const server =  app.listen( PORT, console.log('Server running in ' ,process.env.NODE_ENV, ' mode on port ', PORT));
 
 process.on('unhandledRejection' , (err,promise)=>{
     console.log(`Error: ${err.message}`);
