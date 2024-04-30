@@ -1,5 +1,6 @@
 const User = require('../models/User');
 
+
 exports.register=async(req,res,next)=>{
     try {
         const {name,email,password,role} = req.body;
@@ -14,7 +15,7 @@ exports.register=async(req,res,next)=>{
         });
         // const token  = user.getSignedJwtToken();
         //     res.status(200).json({success:true,token});
-        sendTokenResponse(user,201,res);
+        sendTokenResponse(user,200,res);
         // res.status(200).json({success:true});
     }catch(err) {
 
@@ -50,7 +51,7 @@ exports.login=async (req,res,next) => {
     const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
-        return res.status(401).json({success:false,msg:'Email or password is incorrect'});
+        return res.status(401).json({success:false,msg:'Invalid credentials'});
     }
 
     //Create token

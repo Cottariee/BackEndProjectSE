@@ -20,11 +20,11 @@ exports.getBookings=async (req,res,next)=> {
            select: "name address tel",
         });
 
-    } else {
+    } else 
     query=Booking.find().populate({
      path:'campground',
      select: 'name address tel'
-    });}
+    });
    }
    try {
     const bookings = await query;

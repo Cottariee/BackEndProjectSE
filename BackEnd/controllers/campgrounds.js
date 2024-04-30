@@ -14,7 +14,7 @@ exports.getCampgrounds=async(req,res,next)=>{
 
     //Loop over remove fields and delete them from reqQuery
     removeFields.forEach(param=>delete reqQuery[param]);
-    // console.log(reqQuery);
+    console.log(reqQuery);
     //Create query String
 
     let queryStr=JSON.stringify(reqQuery);
