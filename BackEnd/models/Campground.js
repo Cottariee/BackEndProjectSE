@@ -20,7 +20,24 @@ address:{
   required : [true, 'Please add an address']
 },
  tel:{
-    type: String
+  type: String
+  
+ },
+ activity : {
+  type : String ,
+  required : [true, 'Please add an activity']
+ },
+ country : {
+  type : String ,
+ },
+tag : {
+ type : [String]
+},
+ avgRate: {
+  type: Number,
+ },
+ totalRate: {
+  type: Number
  }
 },{
     toJSON : {virtuals:true},
@@ -43,3 +60,4 @@ CampgroundSchema.pre('deleteOne', {document:true , query: false} ,async function
 });
 
 module.exports=mongoose.model('Campground',CampgroundSchema);
+
